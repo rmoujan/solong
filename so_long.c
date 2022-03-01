@@ -56,10 +56,10 @@ typedef struct	s_vars {
 	void	*win;
 }				t_vars;
 
-
-int	close(int keycode, t_vars *vars)
+//for esc key
+int	close_esc(int keycode, t_vars *vars)
 {
-	//printf("key code is %d  == ", keycode);
+	//printf("key code is %d", keycode);
 	//53 is the keycode of esc key
 	if (keycode == 53)
 	{
@@ -71,13 +71,24 @@ int	close(int keycode, t_vars *vars)
 		return (1);
 	}
 }
+//for the crose
+int close_crose(t_vars *vars)
+{
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+}
 
 int	main(void)
 {
 	t_vars	vars;
 
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1080, 800, "Hello world!");
-	mlx_hook(vars.win, 2, 0, close, &vars);
+	vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
+	//mlx_mouse_hook(vars.win, &mouse_event, 0);
+	//mlx_mouse_hook(vars.win, mouse_hook, &vars);
+	//for esc key
+	mlx_hook(vars.win, 2, 0, close_esc, &vars);
+	//for the crose
+	mlx_hook(vars.win, 17, 0, close_crose, &vars);
 	mlx_loop(vars.mlx);
 }
