@@ -63,6 +63,25 @@ void import_map(char ***tab, char *ptr)
 	}
 	(*tab)[i] = 0;
 }
+int check_map(char a)
+{
+	if (a == 'C' || a == 'P' || a == 'E' || a == '1' || a == '0')
+	{
+		printf("inside if\n");
+		return (1);
+	}
+	else
+	{
+		printf("inside else\n");
+		return (0);
+	}
+}
+void exit_window(void)
+{
+	//mlx_destroy_window(vars->mlx, vars->win);
+	printf("exit \n");
+		exit(0);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -73,6 +92,63 @@ int	main(int argc, char *argv[])
 	int i = 0;
 
 	import_map(&tab, argv[argc - 1]);
+	//starting checking the map ::
+	//check is the map conatin just 1 0 P E C
+	while (tab[j])
+	{
+		i = 0;
+		while (tab[j][i] != '\0')
+		{
+//printf("tab[j][i] == %c AND check_map(tab[j][i] == %d\n", tab[j][i],check_map(tab[j][i]));
+			if (check_map(tab[j][i]) == 0)
+			{
+				//printf("should exit from the prg \n");
+				exit_window();
+			}
+			i++;
+		}
+		j++;
+	}
+	printf("HALLLO WORLD Before\n");
+	//check is the map rectangular :
+	j = 0;
+	int len  = 0;
+	while (tab[j])
+	{
+		len = len + ft_strlen(tab[j]);
+		j++;
+	}
+	printf("len == %d and j == %d\n", len, j);
+	size_t  total =  len / j;
+	j = 0;
+	while (tab[j])
+	{
+		if (total != ft_strlen(tab[j]))
+			exit_window();
+		j++;
+	}
+	//check is the map surrounded by walls :
+	j = 0;
+	int f;
+	while (tab[j])
+	{
+		i = 0;
+		f = 0
+		while (tab[j][i] != '\0')
+		{
+			if (tab[j][0] == 1)
+				f++;
+			printf("tab[%d][%d] == *%c*\n", j,i,tab[j][i]);
+			i++;
+		}
+		if (tab[j][i - 1] == 1)
+			f++;
+		if (f != 2)
+			exit_window();
+		j++;
+	}
+
+printf("HALLLO WORLD AFTER \n");
 
 
 
