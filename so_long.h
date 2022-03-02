@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/02 09:31:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/02 15:20:54 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,11 @@ int			ft_checker(char *str);
 char		*ft_process(char **rest);
 void		*ft_free(char **p1);
 char		*ft_work(char **buffer, char **rest, int fd);
+char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str);
+
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:04:30 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/02 09:29:54 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/02 15:47:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ static char	*ft_copy(char const *s1, char const *s2, char *p)
 	return (p);
 }
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	while (str[i] != '\0')
+// 		i++;
+// 	return (i);
+// }
 
 char	*ft_strjoin(char **s1, char **s2)
 {
@@ -58,26 +58,26 @@ char	*ft_strjoin(char **s1, char **s2)
 	return (p);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*p;
-	size_t	i;
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char	*p;
+// 	size_t	i;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	p = malloc((len + 1) * sizeof(char));
-	if (p == NULL)
-		return (NULL);
-	if (start <= ft_strlen(s))
-	{
-		while (i < len && s)
-		{
-			p[i] = s[start];
-			i++;
-			start++;
-		}
-	}
-	p[i] = '\0';
-	return (p);
-}
+// 	i = 0;
+// 	if (!s)
+// 		return (NULL);
+// 	p = malloc((len + 1) * sizeof(char));
+// 	if (p == NULL)
+// 		return (NULL);
+// 	if (start <= ft_strlen(s))
+// 	{
+// 		while (i < len && s)
+// 		{
+// 			p[i] = s[start];
+// 			i++;
+// 			start++;
+// 		}
+// 	}
+// 	p[i] = '\0';
+// 	return (p);
+// }
