@@ -6,11 +6,11 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 15:18:22 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/02/20 22:20:14 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/02 09:30:06 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "so_long.h"
 
 int	ft_check(char *str)
 {

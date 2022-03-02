@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/01 18:40:47 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/02 09:31:07 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 # define BUFFER_SIZE 10
 
 typedef struct so_long	t_long;
