@@ -80,7 +80,7 @@ int	main(int argc, char *argv[])
 		i = 0;
 	if (tab)
 	{
-		while (j < (k - 1))
+		while (j < k)
 		{
 			str = get_next_line(fd);
 			printf("*str == %s*\n", str);
@@ -91,42 +91,33 @@ int	main(int argc, char *argv[])
 				i++;
 				
 			}
-			tab[j] = (char*) malloc(i * sizeof(char));
+			if (j + 1 == k)
+				tab[j] = (char*) malloc((i + 1) * sizeof(char));
+			else
+				tab[j] = (char*) malloc(i * sizeof(char));
 			printf("i  == %d\n", i);
-			printf("tab[%d] == *%s*\n", j,tab[j]);
+			printf("*tab[%d] == %s*\n", j,tab[j]);
 			i = 0;
 			j++;
 		}
 	}
+	tab[j] = (char*)malloc(1 * sizeof(char));
+	tab[j] = 0;
+
+	printf("\n++++++\n\n\n");
+	
+	//printf("!!**tab[%d] == %s**\n", (j + 1),tab[j + 1]);
 	i = 0;
-	str = get_next_line(fd);
-	printf("*str == %s* and **j == %d**\n", str, j);
-	while (str)
+	j = 0;
+	while (tab[j])
 	{
-			while (str[i] != '\0')
-			{
-				//printf("inside second while \n");
-				//printf("|str[%d] == %c|\n", i, str[i]);
-				i++;
-			}
-			printf("**i  == %d and j == %d\n", i,j);
-			tab[j] = (char*) malloc((i + 1) * sizeof(char));
-			str = get_next_line(fd);
+		while (tab[i] != '\0')
+		{
+			printf("tab[%d] == *%s*\n", i,tab[i]);
+			i++;
+		}
+		j++;
 	}
-	printf("!!**tab[%d] == %s**\n", j,tab[j]);
-	tab[j + 1] = (char*)malloc(1 * sizeof(char));
-	tab[j + 1] = 0;
-	printf("!!**tab[%d] == %s**\n", (j + 1),tab[j + 1]);
-	// i = 0;
-	// j = 0;
-	// while (tab[j])
-	// {
-	// 	while (tab[i] != '\0')
-	// 	{
-	// 		printf("tab[%d] == *%s*\n", i,tab[i]);
-	// 		i++;
-	// 	}
-	// 	j++;
-	// }
+	//printf("!!**tab[%d] == %s**\n", j,tab[j]);
 	//mlx_loop(vars.mlx);
 }
