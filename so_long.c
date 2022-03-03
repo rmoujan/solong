@@ -42,8 +42,9 @@
 void exit_window(void)
 {
 	//mlx_destroy_window(vars->mlx, vars->win);
-	printf("exit \n");
-		exit(0);
+	write(1, "Error\n", 6);
+	write(1, "INVALID CARD...BE CAREFUL !!! ",30);
+	exit(0);
 }
 
 int	main(int argc, char *argv[])
