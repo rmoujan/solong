@@ -15,11 +15,17 @@ OBJ = $(subst .c,.o,$(SRC))
 
 all: $(NAME)
 
-$(NAME): ${OBJ}
-	$(CC) $(OBJ) -o $(NAME)
+# $(NAME): ${OBJ}
+# 	$(CC) $(OBJ) -o $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 %.o: %.c
-		${CC} -c ${CFLAGS} $< -o $@
+		${CC} -c ${CFLAGS} -I/usr/local/include $< -o $@
+
+# %.o: %.c
+# 		${CC} -c ${CFLAGS} $< -o $@
 
 clean :
 	$(RM) $(OBJ)

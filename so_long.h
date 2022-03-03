@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/03 10:06:55 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/03 11:21:38 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	import_map(char ***tab, char *ptr);
 int		check_map(char a);
 void	check_map_ecp(char **tab);
 int		ft_ecp(char *s, char c);
-
+void	check_map_charachters(char **tab);
+// void exit_window(t_long *vars);
 
 #endif

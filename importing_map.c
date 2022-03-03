@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/03 10:06:39 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/03 11:16:00 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,3 +77,42 @@ void check_map_ecp(char **tab)
 	if (flagE == 0 || flagC == 0 || flagP == 0)
 		exit_window();
 }
+
+//check is the map contain just 1 0 P E C
+void check_map_charachters(char **tab)
+{
+	int	j;
+	int	i;
+
+	j = 0;
+	while (tab[j])
+	{
+		i = 0;
+		while (tab[j][i] != '\0')
+		{
+			if (check_map(tab[j][i]) == 0)
+			{
+				exit_window();
+			}
+			i++;
+		}
+		j++;
+	}
+}
+
+// printf("\n OUTPUT THE ARRAY \n");
+	//  j = 0;
+	//  i = 0;
+	// while (tab[j])
+	// {
+	// 	i = 0;
+	// 	while (tab[j][i] != '\0')
+	// 	{
+	// 		printf("tab[%d][%d] == *%c*\n", j,i,tab[j][i]);
+	// 		i++;
+	// 	}
+
+	// 	printf("i == %d\n", i);
+	// 	j++;
+	// }
+	// printf("!!**tab[%d] == %s**\n", j,tab[j]);

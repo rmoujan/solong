@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:13:38 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/03 09:15:02 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/03 11:13:48 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ int check_map(char a)
 {
 	if (a == 'C' || a == 'P' || a == 'E' || a == '1' || a == '0')
 	{
-		printf("inside if\n");
 		return (1);
 	}
 	else
 	{
-		printf("inside else\n");
 		return (0);
 	}
 }
@@ -39,7 +37,6 @@ void is_rectangular(char **tab)
 		len = len + ft_strlen(tab[j]);
 		j++;
 	}
-	printf("len == %d and j == %d\n", len, j);
 	total =  len / j;
 	j = 0;
 	while (tab[j])
