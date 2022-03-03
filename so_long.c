@@ -39,7 +39,6 @@
 
 //}
 
-
 void exit_window(void)
 {
 	//mlx_destroy_window(vars->mlx, vars->win);
@@ -76,10 +75,14 @@ int	main(int argc, char *argv[])
 	printf("HALLLO WORLD Before\n");
 	//check is the map rectangular :
 	is_rectangular(tab);
+	//printf("AFTER RECTU \n");
 	//check is the map surrounded by walls(1) :
 	is_surrounded(tab);
-
-
+	printf("AFTER surrounded \n");
+	//check is the map contain at least 1 E, 1 C, and 1 P :
+	printf("*** BEFORE check map ECP ***\n");
+	check_map_ecp(tab);
+	printf("*** AFTER check map ECP ***\n");
 	printf("HALLLO WORLD AFTER \n");
 	//vars.mlx = mlx_init();
 	//vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
