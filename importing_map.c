@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/03 11:16:00 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/03 13:37:53 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void import_map(char ***tab, char *ptr)
 }
 
 //ft_check E C P
-int	ft_ecp(char *s, char c)
+int	ft_ecp(char *s, char c, int *count)
 {
 	int		i;
 
@@ -47,7 +47,9 @@ int	ft_ecp(char *s, char c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			return (1);
+		{
+			*count= *count + 1;
+		}
 		i++;
 	}
 	return (0);
@@ -66,14 +68,13 @@ void check_map_ecp(char **tab)
 	flagP = 0;
 	while (tab[j])
 	{
-		if (ft_ecp(tab[j], 'E'))
-			flagE++;
-		if (ft_ecp(tab[j], 'C'))
-			flagC++;
-		if (ft_ecp(tab[j], 'P'))
-			flagP++;
+		ft_ecp(tab[j], 'E', &flagE);
+		ft_ecp(tab[j], 'C', &flagC);
+		ft_ecp(tab[j], 'P', &flagP);
 		j++;
 	}
+	if (flagP >= 2)
+		exit_window();
 	if (flagE == 0 || flagC == 0 || flagP == 0)
 		exit_window();
 }

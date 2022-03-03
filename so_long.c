@@ -14,26 +14,26 @@
 
 
 // //for esc key
-int	close_esc(int keycode, t_long *vars)
-{
-	//printf("key code is %d", keycode);
-	//53 is the keycode of esc key
-	if (keycode == 53)
-	{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-	}
-	else
-	{
-		return (1);
-	}
-}
-// //for the crose
-int close_crose(t_long *vars)
-{
-		mlx_destroy_window(vars->mlx, vars->win);
-		exit(0);
-}
+// int	close_esc(int keycode, t_long *vars)
+// {
+// 	//printf("key code is %d", keycode);
+// 	//53 is the keycode of esc key
+// 	if (keycode == 53)
+// 	{
+// 		mlx_destroy_window(vars->mlx, vars->win);
+// 		exit(0);
+// 	}
+// 	else
+// 	{
+// 		return (1);
+// 	}
+// }
+// // //for the crose
+// int close_crose(t_long *vars)
+// {
+// 		mlx_destroy_window(vars->mlx, vars->win);
+// 		exit(0);
+// }
 
 void exit_window(void)
 {
@@ -47,22 +47,15 @@ void exit_window(void)
 int	main(int argc, char *argv[])
 {
 
-	t_long	vars;
+	//t_long	vars;
 	char	**tab = NULL;
 	
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
-	//for esc key
-	mlx_hook(vars.win, 2, 0, close_esc, &vars);
-	//for the crose
-	mlx_hook(vars.win, 17, 0, close_crose, &vars);
-	import_map(&tab, argv[argc - 1]);
-	//mlx_loop(vars.mlx);
 
+	//full the array with tha map :
+	import_map(&tab, argv[argc - 1]);
 	//starting checking the map ::
 	//check is the map contain just 1 0 P E C
 	check_map_charachters(tab);
-
 	//printf("HALLLO WORLD Before\n");
 	//check is the map rectangular :
 	is_rectangular(tab);
@@ -76,5 +69,13 @@ int	main(int argc, char *argv[])
 	//printf("*** AFTER check map ECP ***\n");
 	//printf("HALLLO WORLD AFTER \n");
 
-	mlx_loop(vars.mlx);
+	// //starting the game :
+	// vars.mlx = mlx_init();
+	// vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
+	// //for esc key
+	// mlx_hook(vars.win, 2, 0, close_esc, &vars);
+	// //for the crose
+	// mlx_hook(vars.win, 17, 0, close_crose, &vars);
+
+	// mlx_loop(vars.mlx);
 }
