@@ -7,7 +7,9 @@ RM = rm -f
 SRC=so_long.c\
 	get_next_line.c\
 	get_next_line_utils.c\
-	tools.c
+	tools.c\
+	checking_map.c\
+	importing_map.c
 
 OBJ = $(subst .c,.o,$(SRC))
 

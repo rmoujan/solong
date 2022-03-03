@@ -38,44 +38,8 @@
 // {
 
 //}
-//import the map and put it inside an array 
-void import_map(char ***tab, char *ptr)
-{
-	int fd;
-	int k;
-	int i;
-	char *str;
 
-	k = 0;
-	fd = open(ptr ,O_RDONLY);
-	while (get_next_line(fd))
-		k++;
-	*tab = (char **)malloc((k + 1) * sizeof(char*));
-	close(fd);
-	fd = open(ptr ,O_RDONLY);
-	i = 0;
-	str = get_next_line(fd);
-	while (str)
-	{
-		(*tab)[i] =ft_strtrim(str, "\n");
-		i++;
-		str = get_next_line(fd);
-	}
-	(*tab)[i] = 0;
-}
-int check_map(char a)
-{
-	if (a == 'C' || a == 'P' || a == 'E' || a == '1' || a == '0')
-	{
-		printf("inside if\n");
-		return (1);
-	}
-	else
-	{
-		printf("inside else\n");
-		return (0);
-	}
-}
+
 void exit_window(void)
 {
 	//mlx_destroy_window(vars->mlx, vars->win);
@@ -111,47 +75,12 @@ int	main(int argc, char *argv[])
 	}
 	printf("HALLLO WORLD Before\n");
 	//check is the map rectangular :
-	j = 0;
-	int len  = 0;
-	while (tab[j])
-	{
-		len = len + ft_strlen(tab[j]);
-		j++;
-	}
-	printf("len == %d and j == %d\n", len, j);
-	size_t  total =  len / j;
-	j = 0;
-	while (tab[j])
-	{
-		if (total != ft_strlen(tab[j]))
-			exit_window();
-		j++;
-	}
-	//check is the map surrounded by walls :
-	j = 0;
-	int f;
-	while (tab[j])
-	{
-		i = 0;
-		f = 0
-		while (tab[j][i] != '\0')
-		{
-			if (tab[j][0] == 1)
-				f++;
-			printf("tab[%d][%d] == *%c*\n", j,i,tab[j][i]);
-			i++;
-		}
-		if (tab[j][i - 1] == 1)
-			f++;
-		if (f != 2)
-			exit_window();
-		j++;
-	}
-
-printf("HALLLO WORLD AFTER \n");
+	is_rectangular(tab);
+	//check is the map surrounded by walls(1) :
+	is_surrounded(tab);
 
 
-
+	printf("HALLLO WORLD AFTER \n");
 	//vars.mlx = mlx_init();
 	//vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
 	//printf("argv[1] == %s", argv[1]);
