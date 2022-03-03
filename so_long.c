@@ -52,7 +52,6 @@ int	main(int argc, char *argv[])
 	
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
-	//printf("argv[1] == %s", argv[1]);
 	//for esc key
 	mlx_hook(vars.win, 2, 0, close_esc, &vars);
 	//for the crose
