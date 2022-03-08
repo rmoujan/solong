@@ -81,7 +81,7 @@ int	main(int argc, char *argv[])
 
 	//starting the game :
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1080, 800, "./so_long");
+	vars.win = mlx_new_window(vars.mlx, 60*30, 40*26, "./so_long");
 	//for esc key
 	mlx_hook(vars.win, 2, 0, close_esc, &vars);
 	//for the crose
@@ -96,8 +96,17 @@ int	main(int argc, char *argv[])
 			if (tab[i][j] == '1')
 			{
 			//img = mlx_new_image(vars.mlx, 10, 10);
-			img = mlx_xpm_file_to_image(vars.mlx, "./images/wa.xpm", &img_width, &img_height);
-			mlx_put_image_to_window(vars.mlx, vars.win, img, i,j);
+			img = mlx_xpm_file_to_image(vars.mlx, "./images/w.xpm", &img_width, &img_height);
+			mlx_put_image_to_window(vars.mlx, vars.win, img, j*60,i*40);
+			//img = mlx_new_image(vars.mlx, 10, 10);
+			//img = mlx_xpm_file_to_image(vars.mlx, "./images/wall.xpm", &img_width, &img_height);
+			//mlx_put_image_to_window(vars.mlx, vars.win, img, 120,20);
+			}
+			else 
+			{
+			//img = mlx_new_image(vars.mlx, 10, 10);
+			img = mlx_xpm_file_to_image(vars.mlx, "./images/space.xpm", &img_width, &img_height);
+			mlx_put_image_to_window(vars.mlx, vars.win, img, j*60,i*40);
 			//img = mlx_new_image(vars.mlx, 10, 10);
 			//img = mlx_xpm_file_to_image(vars.mlx, "./images/wall.xpm", &img_width, &img_height);
 			//mlx_put_image_to_window(vars.mlx, vars.win, img, 120,20);
