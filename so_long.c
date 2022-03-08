@@ -42,14 +42,24 @@ void exit_window(void)
 	write(1, "INVALID CARD...BE CAREFUL !!! ",30);
 	exit(0);
 }
-
+// typedef struct	s_data {
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// }				t_data;
 
 int	main(int argc, char *argv[])
 {
 
 	t_long	vars;
+	//t_data img;
 	char	**tab = NULL;
-	
+	int		img_width;
+	int		img_height;
+	void	*img;
+
 
 	//full the array with tha map :
 	import_map(&tab, argv[argc - 1]);
@@ -76,6 +86,27 @@ int	main(int argc, char *argv[])
 	mlx_hook(vars.win, 2, 0, close_esc, &vars);
 	//for the crose
 	mlx_hook(vars.win, 17, 0, close_crose, &vars);
+	int	i = 0;
+	int j;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			if (tab[i][j] == '1')
+			{
+			//img = mlx_new_image(vars.mlx, 10, 10);
+			img = mlx_xpm_file_to_image(vars.mlx, "./images/wa.xpm", &img_width, &img_height);
+			mlx_put_image_to_window(vars.mlx, vars.win, img, i,j);
+			//img = mlx_new_image(vars.mlx, 10, 10);
+			//img = mlx_xpm_file_to_image(vars.mlx, "./images/wall.xpm", &img_width, &img_height);
+			//mlx_put_image_to_window(vars.mlx, vars.win, img, 120,20);
+			}
+			j++;
+		}
+		i++;
+	}
+
 
 	mlx_loop(vars.mlx);
 }
