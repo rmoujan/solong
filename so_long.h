@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/10 12:02:57 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/10 13:00:13 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	check_map_ecp(char **tab);
 // int		ft_ecp(char *s, char c);
 void	check_map_charachters(char **tab);
 // void exit_window(t_long *vars);
-int	ft_ecp(char *s, char c, int *count);
+int		ft_ecp(char *s, char c, int *count);
 void	line_column(char **tab, int *l, int *c);
+void	creating_window(char **tab, t_long game);
 
 #endif

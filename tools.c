@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:13:15 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/02 15:47:25 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/10 13:02:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,58 @@ size_t	ft_strlen(const char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
+}
+
+void	creating_window(char **tab, t_long game)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	j = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			if (tab[i][j] == '1')
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/w.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			else if (tab[i][j] == '0')
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			else if (tab[i][j] == 'C')
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/coll.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}	
+			else if (tab[i][j] == 'E') 
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/door.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			else if (tab[i][j] == 'P') 
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/mira.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			j++;
+		}
+		i++;
+	}
 }

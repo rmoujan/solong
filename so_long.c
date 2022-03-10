@@ -47,6 +47,16 @@ void exit_window(void)
 // C for a collectible,
 // E for a map exit,
 // P for the player’s starting position.
+int	key_hook(int keycode, t_long *game, char **tab)
+{
+	if (keycode == 13)
+	{
+
+		printf("test W \n");
+	}
+	printf("Hello from key_hook is %d!\n", keycode);
+	return (0);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -87,57 +97,15 @@ int	main(int argc, char *argv[])
 	mlx_hook(game.win, 2, 0, close_esc, &game);
 	//for the crose
 	mlx_hook(game.win, 17, 0, close_crose, &game);
-	i = 0;
-	while (tab[i])
-	{
-		j = 0;
-		while (tab[i][j])
-		{
-			if (tab[i][j] == '1')
-			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/w.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
-			//game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/wall.xpm", &game.img.width, &game.img.height);
-			//mlx_put_image_to_window(game.mlx, game.win, game.img.img, 120,20);
-			}
-			else if (tab[i][j] == '0')
-			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			}
-			else if (tab[i][j] == 'C')
-			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/coll.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			}
-			
-			else if (tab[i][j] == 'E') 
-			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/door.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			}
-			else if (tab[i][j] == 'P') 
-			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/mira.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			}
-			j++;
-		}
-		i++;
-	}
+	creating_window(tab, game);
+	//starting moving the main character :
+	//test W up :
+	mlx_key_hook(game.win, key_hook, &game, tab);
 
 
 	mlx_loop(game.mlx);
 }
+// W :up
+// A :left
+// S :down
+// D :right
