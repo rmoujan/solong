@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/03 13:39:49 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/10 12:02:57 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,20 @@
 #include <unistd.h>
 # define BUFFER_SIZE 10
 
+typedef struct image	t_image;
+struct	image {
+	void	*img;
+	int		width;
+	int		height;
+};
+
 typedef struct so_long	t_long;
 struct	so_long {
 	void	*mlx;
 	void	*win;
+	t_image	img;
 };
+
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char **s1, char **s2);
@@ -50,5 +59,6 @@ void	check_map_ecp(char **tab);
 void	check_map_charachters(char **tab);
 // void exit_window(t_long *vars);
 int	ft_ecp(char *s, char c, int *count);
+void	line_column(char **tab, int *l, int *c);
 
 #endif

@@ -14,13 +14,13 @@
 
 
 // //for esc key
-int	close_esc(int keycode, t_long *vars)
+int	close_esc(int keycode, t_long *game)
 {
 	//printf("key code is %d", keycode);
 	//53 is the keycode of esc key
 	if (keycode == 53)
 	{
-		mlx_destroy_window(vars->mlx, vars->win);
+		mlx_destroy_window(game->mlx, game->win);
 		exit(0);
 	}
 	else
@@ -29,38 +29,36 @@ int	close_esc(int keycode, t_long *vars)
 	}
 }
 //for the crose
-int close_crose(t_long *vars)
+int close_crose(t_long *game)
 {
-		mlx_destroy_window(vars->mlx, vars->win);
+		mlx_destroy_window(game->mlx, game->win);
 		exit(0);
 }
 
 void exit_window(void)
 {
-	//mlx_destroy_window(vars->mlx, vars->win);
+	//mlx_destroy_window(game->mlx, game->win);
 	write(1, "Error\n", 6);
 	write(1, "INVALID CARD...BE CAREFUL !!! ",30);
 	exit(0);
 }
-// typedef struct	s_data {
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// }				t_data;
+// 0 for an empty space,
+// 1 for a wall,
+// C for a collectible,
+// E for a map exit,
+// P for the player’s starting position.
 
 int	main(int argc, char *argv[])
 {
 
-	t_long	vars;
-	//t_data img;
+	t_long	game;
 	char	**tab = NULL;
-	int		img_width;
-	int		img_height;
-	void	*img;
+	int	i;
+	int j;
 
 
+	i = 0;
+	j = 0;
 	//full the array with tha map :
 	import_map(&tab, argv[argc - 1]);
 	//starting checking the map ::
@@ -80,14 +78,16 @@ int	main(int argc, char *argv[])
 	//printf("HALLLO WORLD AFTER \n");
 
 	//starting the game :
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 60*30, 40*26, "./so_long");
+	game.mlx = mlx_init();
+	//printf("value of l is %d nad value of c is %d \n", l, c);
+	line_column(tab, &i, &j);
+	//printf("value of l is %d nad value of c is %d \n", l, c);
+	game.win = mlx_new_window(game.mlx, 60*j, 40*i, "./so_long");
 	//for esc key
-	mlx_hook(vars.win, 2, 0, close_esc, &vars);
+	mlx_hook(game.win, 2, 0, close_esc, &game);
 	//for the crose
-	mlx_hook(vars.win, 17, 0, close_crose, &vars);
-	int	i = 0;
-	int j;
+	mlx_hook(game.win, 17, 0, close_crose, &game);
+	i = 0;
 	while (tab[i])
 	{
 		j = 0;
@@ -95,21 +95,43 @@ int	main(int argc, char *argv[])
 		{
 			if (tab[i][j] == '1')
 			{
-			//img = mlx_new_image(vars.mlx, 10, 10);
-			img = mlx_xpm_file_to_image(vars.mlx, "./images/w.xpm", &img_width, &img_height);
-			mlx_put_image_to_window(vars.mlx, vars.win, img, j*60,i*40);
-			//img = mlx_new_image(vars.mlx, 10, 10);
-			//img = mlx_xpm_file_to_image(vars.mlx, "./images/wall.xpm", &img_width, &img_height);
-			//mlx_put_image_to_window(vars.mlx, vars.win, img, 120,20);
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/w.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			//game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/wall.xpm", &game.img.width, &game.img.height);
+			//mlx_put_image_to_window(game.mlx, game.win, game.img.img, 120,20);
 			}
-			else 
+			else if (tab[i][j] == '0')
 			{
-			//img = mlx_new_image(vars.mlx, 10, 10);
-			img = mlx_xpm_file_to_image(vars.mlx, "./images/space.xpm", &img_width, &img_height);
-			mlx_put_image_to_window(vars.mlx, vars.win, img, j*60,i*40);
-			//img = mlx_new_image(vars.mlx, 10, 10);
-			//img = mlx_xpm_file_to_image(vars.mlx, "./images/wall.xpm", &img_width, &img_height);
-			//mlx_put_image_to_window(vars.mlx, vars.win, img, 120,20);
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			else if (tab[i][j] == 'C')
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/coll.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			
+			else if (tab[i][j] == 'E') 
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/door.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			}
+			else if (tab[i][j] == 'P') 
+			{
+			//game.img.img = mlx_new_image(game.mlx, 10, 10);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/mira.xpm", &game.img.width, &game.img.height);
+			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			}
 			j++;
 		}
@@ -117,5 +139,5 @@ int	main(int argc, char *argv[])
 	}
 
 
-	mlx_loop(vars.mlx);
+	mlx_loop(game.mlx);
 }

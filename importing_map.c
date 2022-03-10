@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/03 13:37:53 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/10 10:17:33 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,26 @@ void import_map(char ***tab, char *ptr)
 		str = get_next_line(fd);
 	}
 	(*tab)[i] = 0;
+}
+void	line_column(char **tab, int *l, int *c)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (tab[i])
+	{
+		(*c) = 0;
+		j = 0;
+		while (tab[i][j])
+		{
+			(*c)++;
+			j++;
+		}
+		(*l)++;
+		i++;
+	}
 }
 
 //ft_check E C P
