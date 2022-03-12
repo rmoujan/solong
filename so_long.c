@@ -12,13 +12,11 @@
 
 #include "so_long.h"
 
-
 // //for esc key
 int	close_esc(int keycode, t_long *game)
 {
 	//printf("key code is %d", keycode);
 	//53 is the keycode of esc key
-	//printf("inside close esc \n");
 	if (keycode == 53)
 	{
 		mlx_destroy_window(game->mlx, game->win);
@@ -29,6 +27,7 @@ int	close_esc(int keycode, t_long *game)
 		return (1);
 	}
 }
+
 //for the crose
 int close_crose(t_long *game)
 {
@@ -43,194 +42,22 @@ void exit_window(void)
 	write(1, "INVALID CARD...BE CAREFUL !!! ",30);
 	exit(0);
 }
-//for moving the main charcter up
-void up(t_long *game)
-{
-	get_index_player(game);
-	//output_map(game);
-	// //printf("BEFORE MOVING output from function i == %d and j == %d \n", game->x, game->y);
-	// printf("BEFORE MOVING output from function game  == %c\n", game->tab[game->x - 1][game->y]);
-	// printf("BEFORE MOVING output from function game  == %c\n", game->tab[game->x][game->y]);
-	if (game->tab[game->x - 1][game->y] == '0')
-	{
-		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x - 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x - 1][game->y] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x - 1][game->y] == 'C')
-	{
-		game->move++;
-		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x - 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x - 1][game->y] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x - 1][game->y] == 'E')
-	{
-		//printf("inside E\n");
-		//printf("GAME->EAT == %d AND GAME->COOLECT == %d \n",game->eat, game->collect);
-		if (game->eat == game->collect)
-		{
-			write(1, "good job your are winner \n", 26);
-			exit(0);
-		}
-	}
-	//output_map(game);
-// 	//get_index_player(game);
-// 	//printf("AFTER MOVING output from function i == %d and j == %d \n", game->x, game->y);
-// printf("after MOVING output from function game  == %c\n", game->tab[game->x - 1][game->y]);
-// 	printf("after MOVING output from function game  == %c\n", game->tab[game->x][game->y]);
-}
-void left(t_long *game)
-{
-	get_index_player(game);
-	if (game->tab[game->x][game->y - 1] == '0')
-	{
-		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y - 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x][game->y - 1] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x][game->y - 1] == 'C')
-	{
-		game->move++;
-		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y - 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x][game->y - 1] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x][game->y - 1] == 'E')
-	{
-		//printf("inside E\n");
-		//printf("GAME->EAT == %d AND GAME->COOLECT == %d \n",game->eat, game->collect);
-		if (game->eat == game->collect)
-		{
-			write(1, "good job your are winner \n", 26);
-			exit(0);
-		}
-	}
-}
 
-void down(t_long *game)
-{
-	get_index_player(game);
-	if (game->tab[game->x + 1][game->y] == '0')
-	{
-		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y)*60,(game->x + 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x + 1][game->y] = 'P';
-		moves(game);
-	}
-
-	else if (game->tab[game->x + 1][game->y] == 'C')
-	{
-		game->move++;
-		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y)*60,(game->x + 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x + 1][game->y] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x + 1][game->y] == 'E')
-	{
-		//printf("inside E\n");
-		//printf("GAME->EAT == %d AND GAME->COOLECT == %d \n",game->eat, game->collect);
-		if (game->eat == game->collect)
-		{
-			write(1, "good job your are winner \n", 26);
-			exit(0);
-		}
-	}
-	
-
-}
-void right(t_long *game)
-{
-	get_index_player(game);
-	if (game->tab[game->x][game->y + 1] == '0')
-	{
-		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y + 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x][game->y + 1] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x][game->y + 1] == 'C')
-	{
-		game->move++;
-		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y + 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
-		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
-		game->tab[game->x][game->y] = '0';
-		game->tab[game->x][game->y + 1] = 'P';
-		moves(game);
-	}
-	else if (game->tab[game->x][game->y + 1] == 'E')
-	{
-		if (game->eat == game->collect)
-		{
-			write(1, "good job your are winner \n", 26);
-			exit(0);
-		}
-	}
-
-}
 //for moving the main character
 int	key_hook(int keycode, t_long *game)
 {
-	//printf("inside key hook %d \n",keycode);
 	if (keycode == 13)
-	{
 		up(game);
-	}
 	else if (keycode == 0)
-	{
 		left(game);
-	}
 	else if (keycode == 1)
-	{
 		down(game);
-	}
 	else if (keycode == 2)
-	{
 		right(game);
-	}
 	else if (keycode == 53)
-	{
 		exit(0);
-	}
 	return (0);
 }
-
 
 int	main(int argc, char *argv[])
 {

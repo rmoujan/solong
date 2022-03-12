@@ -6,40 +6,39 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/12 17:51:13 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/12 18:13:45 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <mlx.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+# include <mlx.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <unistd.h>
 # define BUFFER_SIZE 10
 
-typedef struct image	t_image;
-struct	image {
+typedef struct s_image	t_image;
+struct	s_image {
 	void	*img;
 	int		width;
 	int		height;
 };
 
-typedef struct so_long	t_long;
-struct	so_long {
+typedef struct s_long	t_long;
+struct	s_long {
 	void	*mlx;
 	void	*win;
 	char	**tab;
 	int		move;
 	int		eat;
-	int 	collect;
+	int		collect;
 	int		x;
 	int		y;
 	t_image	img;
 };
-
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char **s1, char **s2);
@@ -61,9 +60,7 @@ int		ft_size(char **tab);
 void	import_map(char ***tab, char *ptr);
 int		check_map(char a);
 void	check_map_ecp(char **tab);
-// int		ft_ecp(char *s, char c);
 void	check_map_charachters(char **tab);
-// void exit_window(t_long *vars);
 int		ft_ecp(char *s, char c, int *count);
 void	line_column(char **tab, int *l, int *c);
 void	creating_window(char **tab, t_long game);
@@ -71,5 +68,9 @@ void	get_index_player(t_long *game);
 void	output_map(t_long *game);
 void	moves(t_long *game);
 void	numbers_collectibles(t_long *game);
+void	up(t_long *game);
+void	down(t_long *game);
+void	left(t_long *game);
+void	right(t_long *game);
 
 #endif

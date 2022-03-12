@@ -10,7 +10,8 @@ SRC=so_long.c\
 	tools.c\
 	checking_map.c\
 	importing_map.c\
-	operations.c
+	operations.c\
+	moves1.c
 
 OBJ = $(subst .c,.o,$(SRC))
 
