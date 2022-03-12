@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/10 20:54:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/12 14:51:36 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ struct	so_long {
 	void	*mlx;
 	void	*win;
 	char	**tab;
-	int	x;
-	int y;
+	int		move;
+	int		collect;
+	int		x;
+	int		y;
 	t_image	img;
 };
 
@@ -65,5 +67,6 @@ int		ft_ecp(char *s, char c, int *count);
 void	line_column(char **tab, int *l, int *c);
 void	creating_window(char **tab, t_long game);
 void	get_index_player(t_long *game);
+void	output_map(t_long *game);
 
 #endif
