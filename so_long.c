@@ -12,11 +12,8 @@
 
 #include "so_long.h"
 
-// //for esc key
 int	close_esc(int keycode, t_long *game)
 {
-	//printf("key code is %d", keycode);
-	//53 is the keycode of esc key
 	if (keycode == 53)
 	{
 		mlx_destroy_window(game->mlx, game->win);
@@ -28,16 +25,14 @@ int	close_esc(int keycode, t_long *game)
 	}
 }
 
-//for the crose
-int close_crose(t_long *game)
+int	close_crose(t_long *game)
 {
 		mlx_destroy_window(game->mlx, game->win);
 		exit(0);
 }
 
-void exit_window(void)
+void	exit_window(void)
 {
-	//mlx_destroy_window(game->mlx, game->win);
 	write(1, "Error\n", 6);
 	write(1, "INVALID CARD...BE CAREFUL !!! ",30);
 	exit(0);
@@ -63,8 +58,8 @@ int	main(int argc, char *argv[])
 {
 
 	t_long	game;
-	int	i;
-	int j;
+	int		i;
+	int		j;
 
 	game.move = 0;
 	game.collect = 0;
