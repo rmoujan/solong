@@ -236,14 +236,11 @@ int	main(int argc, char *argv[])
 {
 
 	t_long	game;
-	//char	**tab = NULL;
 	int	i;
 	int j;
+
 	game.move = 0;
 	game.collect = 0;
-	
-
-
 	i = 0;
 	j = 0;
 	//full the array with tha map :
@@ -271,27 +268,16 @@ int	main(int argc, char *argv[])
 	//printf("value of l is %d nad value of c is %d \n", l, c);
 	game.win = mlx_new_window(game.mlx, 60*j, 40*i, "./so_long");
 	numbers_collectibles(&game);
-	printf("numbers of collectibles is %d \n", game.collect);
+	//printf("numbers of collectibles is %d \n", game.collect);
 //	get_index_player(game);
 	//for esc key :
 	mlx_hook(game.win, 2, 0, close_esc, &game);
 	//for the crose :
 	mlx_hook(game.win, 17, 0, close_crose, &game);
 	creating_window(game.tab, game);
-	//starting moving the main character :
-	//test W up :
+	//starting moving the main character (this func that cutch evary event in map) :
 	mlx_hook(game.win, 2, 0, key_hook, &game);
 	//numbers_collectibles(&game);
 	//printf("numbers of collectibles is %d \n", game.collect);
 	mlx_loop(game.mlx);
 }
-// W :up
-// A :left
-// S :down
-// D :right
-//int mlx_key_hook ( void *win_ptr, int (*funct_ptr)(), void *param );
-// 0 for an empty space,
-// 1 for a wall,
-// C for a collectible,
-// E for a map exit,
-// P for the player’s starting position.
