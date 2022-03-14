@@ -6,25 +6,25 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 09:06:23 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 10:21:11 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//for esc key :
-int	close_esc(int keycode, t_long *game)
-{
-	if (keycode == 53)
-	{
-		mlx_destroy_window(game->mlx, game->win);
-		exit(0);
-	}
-	else
-	{
-		return (1);
-	}
-}
+// //for esc key :
+// int	close_esc(int keycode, t_long *game)
+// {
+// 	if (keycode == 53)
+// 	{
+// 		mlx_destroy_window(game->mlx, game->win);
+// 		exit(0);
+// 	}
+// 	else
+// 	{
+// 		return (1);
+// 	}
+// }
 
 //for the crose :
 int	close_crose(t_long *game)
@@ -40,7 +40,7 @@ void	exit_window(void)
 	exit(0);
 }
 
-//for moving the main character
+//for pressing a key and moving the main character
 int	key_hook(int keycode, t_long *game)
 {
 	if (keycode == 13)
@@ -74,13 +74,16 @@ int	main(int argc, char *argv[])
 	is_surrounded(game.tab);
 	check_map_ecp(game.tab);
 	game.mlx = mlx_init();
+	if (game.mlx == NULL)
+		exit(0);
 	line_column(game.tab, &i, &j);
 	game.win = mlx_new_window(game.mlx, 60 * j, 40 * i, "./so_long");
+	if (game.win == NULL)
+		exit(0);
 	numbers_collectibles(&game);
-	mlx_hook(game.win, 2, 0, close_esc, &game);
+	//mlx_hook(game.win, 2, 0, close_esc, &game);
 	mlx_hook(game.win, 17, 0, close_crose, &game);
 	creating_window(game.tab, game);
 	mlx_hook(game.win, 2, 0, key_hook, &game);
-	//free(game.tab);
 	mlx_loop(game.mlx);
 }
