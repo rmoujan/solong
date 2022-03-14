@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:13:15 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 14:02:27 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 15:48:12 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,23 +117,23 @@ void	creating_window(char **tab, t_long game)
 			}
 			else if (tab[i][j] == 'C')
 			{
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/green.xpm", &game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/coll.xpm", &game.img.width, &game.img.height);
+			//game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/green.xpm", &game.img.width, &game.img.height);
+			//mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/money.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			}	
 			else if (tab[i][j] == 'E') 
 			{
 			//game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
 			//mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/door.xpm", &game.img.width, &game.img.height);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/do.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			}
 			else if (tab[i][j] == 'P') 
 			{
 			//game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/green.xpm", &game.img.width, &game.img.height);
-		//	mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/mira.xpm", &game.img.width, &game.img.height);
+			//mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
+			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/zara.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			}
 			j++;

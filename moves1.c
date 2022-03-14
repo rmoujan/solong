@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:05:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 11:46:42 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 15:15:25 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void up(t_long *game)
 	if (game->tab[game->x - 1][game->y] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x - 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x - 1][game->y] = 'P';
@@ -31,9 +31,9 @@ void up(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x - 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x - 1][game->y] = 'P';
@@ -55,9 +55,9 @@ void left(t_long *game)
 	if (game->tab[game->x][game->y - 1] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y - 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x][game->y - 1] = 'P';
@@ -67,9 +67,9 @@ void left(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y - 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x][game->y - 1] = 'P';
@@ -91,9 +91,9 @@ void down(t_long *game)
 	if (game->tab[game->x + 1][game->y] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y)*60,(game->x + 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x + 1][game->y] = 'P';
@@ -104,9 +104,9 @@ void down(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y)*60,(game->x + 1)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x + 1][game->y] = 'P';
@@ -130,9 +130,9 @@ void right(t_long *game)
 	if (game->tab[game->x][game->y + 1] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y + 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x][game->y + 1] = 'P';
@@ -142,9 +142,9 @@ void right(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/mira.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/zara.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, (game->y + 1)*60,(game->x)*40);
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/space.xpm", &game->img.width, &game->img.height);
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/green.xpm", &game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img, game->y*60,(game->x)*40);
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x][game->y + 1] = 'P';
