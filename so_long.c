@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 10:21:11 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 12:17:03 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	exit_window(void)
 //for pressing a key and moving the main character
 int	key_hook(int keycode, t_long *game)
 {
-	if (keycode == 13)
+	if (keycode == 13 || keycode == 126)
 		up(game);
-	else if (keycode == 0)
+	else if (keycode == 0 || keycode == 123)
 		left(game);
-	else if (keycode == 1)
+	else if (keycode == 1 || keycode == 125)
 		down(game);
-	else if (keycode == 2)
+	else if (keycode == 2 || keycode == 124)
 		right(game);
 	else if (keycode == 53)
 		exit(0);

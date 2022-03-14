@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 09:07:23 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 12:05:12 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,22 +81,25 @@ void	check_map_ecp(char **tab)
 	int	flage;
 	int	flagc;
 	int	flagp;
+	int flag;
 	int	j;
 
 	j = 0;
 	flage = 0;
 	flagc = 0;
 	flagp = 0;
+	flag  = 0;
 	while (tab[j])
 	{
 		ft_ecp(tab[j], 'E', &flage);
 		ft_ecp(tab[j], 'C', &flagc);
 		ft_ecp(tab[j], 'P', &flagp);
+		ft_ecp(tab[j], '0', &flag);
 		j++;
 	}
 	if (flagp >= 2)
 		exit_window();
-	if (flage == 0 || flagc == 0 || flagp == 0)
+	if (flage == 0 || flagc == 0 || flagp == 0 || flag == 0)
 		exit_window();
 }
 
