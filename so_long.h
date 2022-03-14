@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/12 18:13:45 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 16:27:33 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ void	up(t_long *game);
 void	down(t_long *game);
 void	left(t_long *game);
 void	right(t_long *game);
+void	chunks1(char c,int i, int j, t_long game);
+void	chunks2(char c,int i, int j, t_long game);
 
 #endif
