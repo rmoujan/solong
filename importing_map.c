@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/12 18:54:42 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 09:07:23 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	import_map(char ***tab, char *ptr)
 	fd = open(ptr, O_RDONLY);
 	while (get_next_line(fd))
 		k++;
-	*tab = (char **) malloc ((k + 1) * sizeof (char*));
+	*tab = (char **) malloc ((k + 1) * sizeof (char *));
 	close(fd);
 	fd = open(ptr, O_RDONLY);
 	i = 0;
@@ -121,20 +121,3 @@ void	check_map_charachters(char **tab)
 		j++;
 	}
 }
-
-// printf("\n OUTPUT THE ARRAY \n");
-	//  j = 0;
-	//  i = 0;
-	// while (tab[j])
-	// {
-	// 	i = 0;
-	// 	while (tab[j][i] != '\0')
-	// 	{
-	// 		printf("tab[%d][%d] == *%c*\n", j,i,tab[j][i]);
-	// 		i++;
-	// 	}
-
-	// 	printf("i == %d\n", i);
-	// 	j++;
-	// }
-	// printf("!!**tab[%d] == %s**\n", j,tab[j]);

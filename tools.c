@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 15:13:15 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/10 13:02:40 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 09:03:26 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	p = NULL;
 	if (!s1 || !set)
 		return (NULL);
-	// if (*s1 == '\0')
-	// 	return (ft_strdup(""));
 	len1 = ft_strlen(s1) - 1;
 	while (ft_strchr(set, s1[i]) && i <= len1)
 		i++;
@@ -107,19 +105,16 @@ void	creating_window(char **tab, t_long game)
 		{
 			if (tab[i][j] == '1')
 			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/w.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			}
 			else if (tab[i][j] == '0')
 			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			}
 			else if (tab[i][j] == 'C')
 			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/coll.xpm", &game.img.width, &game.img.height);
@@ -127,7 +122,6 @@ void	creating_window(char **tab, t_long game)
 			}	
 			else if (tab[i][j] == 'E') 
 			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/door.xpm", &game.img.width, &game.img.height);
@@ -135,7 +129,6 @@ void	creating_window(char **tab, t_long game)
 			}
 			else if (tab[i][j] == 'P') 
 			{
-			//game.img.img = mlx_new_image(game.mlx, 10, 10);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/space.xpm", &game.img.width, &game.img.height);
 			mlx_put_image_to_window(game.mlx, game.win, game.img.img, j*60,i*40);
 			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/mira.xpm", &game.img.width, &game.img.height);
