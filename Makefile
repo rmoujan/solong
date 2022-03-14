@@ -11,7 +11,9 @@ SRC=so_long.c\
 	checking_map.c\
 	importing_map.c\
 	operations.c\
-	moves1.c
+	moves1.c\
+	create_win.c\
+	moves2.c
 
 OBJ = $(subst .c,.o,$(SRC))
 

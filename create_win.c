@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:31:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 16:54:23 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 17:26:07 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	creating_window(char **tab, t_long game)
 		{
 			if (tab[i][j] == '1')
 			{
-			game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/w.xpm",
+				game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/w.xpm",
 						&game.img.width, &game.img.height);
-			mlx_put_image_to_window(game.mlx, game.win, game.img.img,
-						j * 60, i * 40);
+				mlx_put_image_to_window(game.mlx, game.win, game.img.img,
+					j * 60, i * 40);
 			}
 			chunks1(tab[i][j], i, j, game);
 			chunks2(tab[i][j], i, j, game);
@@ -46,14 +46,14 @@ void	chunks1(char c, int i, int j, t_long game)
 		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/s.xpm",
 				&game.img.width, &game.img.height);
 		mlx_put_image_to_window(game.mlx, game.win,
-				game.img.img, j * 60, i * 40);
+			game.img.img, j * 60, i * 40);
 	}
 	else if (c == 'C')
 	{
 		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/c.xpm",
 				&game.img.width, &game.img.height);
 		mlx_put_image_to_window(game.mlx, game.win,
-				game.img.img, j * 60, i * 40);
+			game.img.img, j * 60, i * 40);
 	}	
 }
 
@@ -64,13 +64,13 @@ void	chunks2(char c, int i, int j, t_long game)
 		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/d.xpm",
 				&game.img.width, &game.img.height);
 		mlx_put_image_to_window(game.mlx, game.win,
-				game.img.img, j * 60, i * 40);
+			game.img.img, j * 60, i * 40);
 	}
 	else if (c == 'P')
 	{
 		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/p.xpm",
 				&game.img.width, &game.img.height);
 		mlx_put_image_to_window(game.mlx, game.win,
-				game.img.img, j * 60, i * 40);
+			game.img.img, j * 60, i * 40);
 	}
 }
