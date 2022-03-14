@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 18:30:17 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 18:43:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,8 @@ int	main(int argc, char *argv[])
 	creating_window(game.tab, game);
 	mlx_hook(game.win, 2, 0, key_hook, &game);
 	mlx_loop(game.mlx);
+	while (1)
+	{
+		
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 15:59:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/14 18:51:26 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	import_map(char ***tab, char *ptr)
 	while (str)
 	{
 		(*tab)[i] = ft_strtrim(str, "\n");
+		free(str);
 		i++;
-		str = get_next_line(fd);
+		str = get_next_line(fd);	
 	}
 	(*tab)[i] = 0;
 }
