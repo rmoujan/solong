@@ -13,7 +13,8 @@ SRC=so_long.c\
 	operations.c\
 	moves1.c\
 	create_win.c\
-	moves2.c
+	moves2.c\
+	check_extensions.c 
 
 OBJ = $(subst .c,.o,$(SRC))
 

@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:57:49 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 13:16:51 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 16:34:50 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ void	down(t_long *game)
 	if (game->tab[game->x + 1][game->y] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
-				&game->img.width, &game->img.height);
+		if (game->right == 1 && game->left == 0)
+			game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
+					&game->img.width, &game->img.height);
+		else
+			game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lpla.xpm",
+					&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
 			(game->y) * 60 + 10, (game->x + 1) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
@@ -39,8 +43,16 @@ void	down_chunks(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
 				&game->img.width, &game->img.height);
+		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
+			game->y * 60, (game->x + 1) * 40);
+		if (game->right == 1 && game->left == 0)
+			game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
+					&game->img.width, &game->img.height);
+		else
+			game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lpla.xpm",
+					&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
 			(game->y) * 60 + 10, (game->x + 1) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
@@ -53,6 +65,7 @@ void	down_chunks(t_long *game)
 	}
 	else if (game->tab[game->x + 1][game->y] == 'E')
 	{
+		printf("game-->eat == %d\n", game->eat);
 		if (game->eat == game->collect)
 		{
 			write(1, "Game is Over ... your are winner \n", 34);
@@ -78,8 +91,11 @@ void	right(t_long *game)
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x][game->y + 1] = 'P';
 		moves(game);
+		game->right = 1;
+		game->left = 0;
 	}
 	right_chunks(game);
+
 }
 
 void	right_chunks(t_long *game)
@@ -88,6 +104,10 @@ void	right_chunks(t_long *game)
 	{
 		game->move++;
 		game->eat++;
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
+				&game->img.width, &game->img.height);
+		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
+			(game->y + 1) * 60, (game->x) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
@@ -99,9 +119,12 @@ void	right_chunks(t_long *game)
 		game->tab[game->x][game->y] = '0';
 		game->tab[game->x][game->y + 1] = 'P';
 		moves(game);
+		game->right = 1;
+		game->left = 0;
 	}
 	else if (game->tab[game->x][game->y + 1] == 'E')
 	{
+		printf("game-->eat == %d\n", game->eat);
 		if (game->eat == game->collect)
 		{
 			write(1, "Game is Over ... your are winner \n", 34);

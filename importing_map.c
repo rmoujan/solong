@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 08:42:40 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 16:07:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	import_map(char ***tab, char *ptr)
 
 	i = numbers_lines(ptr);
 	if (i == 0)
-		exit(0);
+		exit_window();
 	*tab = (char **) malloc ((i + 1) * sizeof (char *));
 	fd = open(ptr, O_RDONLY);
 	i = 0;

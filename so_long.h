@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 08:31:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 15:29:29 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ struct	s_long {
 	int		collect;
 	int		x;
 	int		y;
+	int		left;
+	int		right;
 	t_image	img;
 };
 
@@ -79,5 +81,6 @@ void	left_chunks(t_long *game);
 void	down_chunks(t_long *game);
 void	right_chunks(t_long *game);
 int		numbers_lines(char *ptr);
+void	check_argv(char *str);
 
 #endif
