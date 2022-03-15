@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:41:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 16:44:17 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 17:49:07 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,29 @@ void	ft_initialize(int *a, int *b, int *c)
 	*b = 0;
 	*c = 0;
 }
+
+void	ft_final(int a, int b)
+{
+	if (a == b)
+	{
+		write(1, "Game is Over ... your are winner \n", 34);
+		exit(0);
+	}
+}
+
+void	up_chunks2(t_long *game)
+{
+	if (game->right == 1 && game->left == 0)
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
+				&game->img.width, &game->img.height);
+	else
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lp.xpm",
+				&game->img.width, &game->img.height);
+}
+
+		// if (game->right == 1 && game->left == 0)
+		// 	game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
+		// 			&game->img.width, &game->img.height);
+		// else
+		// 	game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lp.xpm",
+		// 			&game->img.width, &game->img.height);
