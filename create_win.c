@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:31:10 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 17:26:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 13:23:37 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,14 @@ void	chunks1(char c, int i, int j, t_long game)
 	}
 	else if (c == 'C')
 	{
-		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/c.xpm",
+		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/s.xpm",
 				&game.img.width, &game.img.height);
 		mlx_put_image_to_window(game.mlx, game.win,
 			game.img.img, j * 60, i * 40);
+		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/c.xpm",
+				&game.img.width, &game.img.height);
+		mlx_put_image_to_window(game.mlx, game.win,
+			game.img.img, j * 60 + 13, i * 40 + 6);
 	}	
 }
 
@@ -68,9 +72,13 @@ void	chunks2(char c, int i, int j, t_long game)
 	}
 	else if (c == 'P')
 	{
-		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/p.xpm",
+		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/s.xpm",
 				&game.img.width, &game.img.height);
 		mlx_put_image_to_window(game.mlx, game.win,
 			game.img.img, j * 60, i * 40);
+		game.img.img = mlx_xpm_file_to_image(game.mlx, "./images/pla.xpm",
+				&game.img.width, &game.img.height);
+		mlx_put_image_to_window(game.mlx, game.win,
+			game.img.img, j * 60 + 10, i * 40);
 	}
 }

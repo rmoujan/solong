@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:05:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 08:41:26 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 13:41:10 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	up(t_long *game)
 	if (game->tab[game->x - 1][game->y] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/p.xpm",
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
-			game->y * 60, (game->x - 1) * 40);
+			game->y * 60 + 10, (game->x - 1) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
@@ -40,10 +40,10 @@ void	up_chunks(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/p.xpm",
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
-			game->y * 60, (game->x - 1) * 40);
+			game->y * 60 + 10, (game->x - 1) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
@@ -68,10 +68,10 @@ void	left(t_long *game)
 	if (game->tab[game->x][game->y - 1] == '0')
 	{
 		game->move++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pl.xpm",
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lpla.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
-			(game->y - 1) * 60, (game->x) * 40);
+			(game->y - 1) * 60 + 10, (game->x) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
@@ -89,10 +89,10 @@ void	left_chunks(t_long *game)
 	{
 		game->move++;
 		game->eat++;
-		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pl.xpm",
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lpla.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
-			(game->y - 1) * 60, (game->x) * 40);
+			(game->y - 1) * 60 + 10, (game->x) * 40);
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/s.xpm",
 				&game->img.width, &game->img.height);
 		mlx_put_image_to_window(game->mlx, game->win, game->img.img,
