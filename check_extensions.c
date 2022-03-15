@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:41:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 14:49:32 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 16:44:17 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,11 @@ void	check_argv(char *str)
 			exit_window();
 		k++;
 	}
+}
+
+void	ft_initialize(int *a, int *b, int *c)
+{
+	*a = 0;
+	*b = 0;
+	*c = 0;
 }
