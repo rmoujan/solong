@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:20:31 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 18:51:26 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 08:42:40 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 void	import_map(char ***tab, char *ptr)
 {
 	int		fd;
-	int		k;
 	int		i;
 	char	*str;
 
-	k = 0;
-	fd = open(ptr, O_RDONLY);
-	while (get_next_line(fd))
-		k++;
-	*tab = (char **) malloc ((k + 1) * sizeof (char *));
-	close(fd);
+	i = numbers_lines(ptr);
+	if (i == 0)
+		exit(0);
+	*tab = (char **) malloc ((i + 1) * sizeof (char *));
 	fd = open(ptr, O_RDONLY);
 	i = 0;
 	str = get_next_line(fd);
@@ -33,7 +30,7 @@ void	import_map(char ***tab, char *ptr)
 		(*tab)[i] = ft_strtrim(str, "\n");
 		free(str);
 		i++;
-		str = get_next_line(fd);	
+		str = get_next_line(fd);
 	}
 	(*tab)[i] = 0;
 }

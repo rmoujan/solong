@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:05:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 18:09:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 08:41:26 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,22 @@ void	left_chunks(t_long *game)
 			exit(0);
 		}
 	}
+}
+
+int	numbers_lines(char *ptr)
+{
+	int		i;
+	int		fd;
+	char	*str;
+
+	i = 0;
+	fd = open(ptr, O_RDONLY);
+	str = get_next_line(fd);
+	while (str)
+	{
+		i++;
+		free(str);
+		str = get_next_line(fd);
+	}
+	return (i);
 }

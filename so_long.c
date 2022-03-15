@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 18:43:21 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 08:40:15 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,6 @@ int	main(int argc, char *argv[])
 		exit(0);
 	import_map(&game.tab, argv[argc - 1]);
 	all_checks(game.tab);
-	// check_map_charachters(game.tab);
-	// is_rectangular(game.tab);
-	// is_surrounded(game.tab);
-	// check_map_ecp(game.tab);
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
 		exit(0);
@@ -80,8 +76,4 @@ int	main(int argc, char *argv[])
 	creating_window(game.tab, game);
 	mlx_hook(game.win, 2, 0, key_hook, &game);
 	mlx_loop(game.mlx);
-	while (1)
-	{
-		
-	}
 }

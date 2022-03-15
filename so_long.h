@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/14 18:20:10 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 08:31:21 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ void	up_chunks(t_long *game);
 void	left_chunks(t_long *game);
 void	down_chunks(t_long *game);
 void	right_chunks(t_long *game);
+int		numbers_lines(char *ptr);
 
 #endif
