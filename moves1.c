@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 18:05:17 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 17:45:56 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/16 09:38:31 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,11 @@ int	numbers_lines(char *ptr)
 
 	i = 0;
 	fd = open(ptr, O_RDONLY);
+	if (fd == -1)
+	{
+		write(1, "ERROR OCCURED WHEN YOU OPENED THE FILE \n", 40);
+		exit(1);
+	}
 	str = get_next_line(fd);
 	while (str)
 	{

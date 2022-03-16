@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 16:09:36 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 16:44:09 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/16 09:27:29 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	exit_window(void)
 {
 	write(1, "Error\n", 6);
 	write(1, "INVALID CARD...BE CAREFUL !!! ", 30);
-	exit(0);
+	exit(1);
 }
 
 //for pressing a key and moving the main character
@@ -63,16 +63,16 @@ int	main(int argc, char *argv[])
 	i = 0;
 	j = 0;
 	if (argc == 1)
-		exit(0);
+		exit(1);
 	import_map(&game.tab, argv[argc - 1]);
 	all_checks(game.tab, argv[argc - 1]);
 	game.mlx = mlx_init();
 	if (game.mlx == NULL)
-		exit(0);
+		exit(1);
 	line_column(game.tab, &i, &j);
 	game.win = mlx_new_window(game.mlx, 60 * j, 40 * i, "./so_long");
 	if (game.win == NULL)
-		exit(0);
+		exit(1);
 	numbers_collectibles(&game);
 	mlx_hook(game.win, 17, 0, close_crose, &game);
 	creating_window(game.tab, game);

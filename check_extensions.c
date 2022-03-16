@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:41:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/15 17:49:07 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/16 09:22:15 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,3 @@ void	up_chunks2(t_long *game)
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lp.xpm",
 				&game->img.width, &game->img.height);
 }
-
-		// if (game->right == 1 && game->left == 0)
-		// 	game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/pla.xpm",
-		// 			&game->img.width, &game->img.height);
-		// else
-		// 	game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/lp.xpm",
-		// 			&game->img.width, &game->img.height);

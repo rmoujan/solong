@@ -39,3 +39,4 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+##Notes : that $< is patterned to match prerequisites and $@ matches the target
