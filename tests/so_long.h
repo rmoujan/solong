@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:27:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/16 11:05:42 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/16 10:22:24 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	down_chunks(t_long *game);
 void	right_chunks(t_long *game);
 int		numbers_lines(char *ptr);
 void	check_argv(char *str);
-void	ft_final(t_long *game, int a, int b);
+void	ft_final(int a, int b);
 void	ft_initialize(int *a, int *b, int *c, int *d);
 void	up_chunks2(t_long *game);
 

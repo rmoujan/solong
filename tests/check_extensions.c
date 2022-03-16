@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:41:39 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/16 11:27:08 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/16 10:22:13 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,10 @@ void	ft_initialize(int *a, int *b, int *c, int *d)
 	*d = 0;
 }
 
-void	ft_final(t_long *game, int a, int b)
+void	ft_final(int a, int b)
 {
 	if (a == b)
 	{
-		game->move++;
-		moves(game);
 		write(1, "Game is Over ... your are winner \n", 34);
 		exit(0);
 	}

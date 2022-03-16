@@ -6,7 +6,7 @@
 /*   By: rmoujan < rmoujan@student.1337.ma>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:57:49 by rmoujan           #+#    #+#             */
-/*   Updated: 2022/03/16 11:07:10 by rmoujan          ###   ########.fr       */
+/*   Updated: 2022/03/15 17:49:59 by rmoujan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	down_chunks(t_long *game)
 		moves(game);
 	}
 	else if (game->tab[game->x + 1][game->y] == 'E')
-		ft_final(game, game->eat, game->collect);
+		ft_final(game->eat, game->collect);
 }
 
 void	right(t_long *game)
@@ -110,5 +110,5 @@ void	right_chunks(t_long *game)
 		game->left = 0;
 	}
 	else if (game->tab[game->x][game->y + 1] == 'E')
-		ft_final(game, game->eat, game->collect);
+		ft_final(game->eat, game->collect);
 }
